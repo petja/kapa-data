@@ -19,6 +19,7 @@ export class Item<NS extends ItemType> {
 	}
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Prop<V> {
 	constructor(public id: string) {
 		propertyRegistry.set(id, this);

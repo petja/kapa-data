@@ -34,7 +34,7 @@ jobs:
         run: npm test
 
       - name: Build
-        run: npm run start
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -42,7 +42,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./output"
+          path: "./build/client"
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4

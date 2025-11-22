@@ -11,7 +11,7 @@ function writeItemToFile(item: Item<ItemType>) {
 	const identifier = identifierParts.join(":");
 	const filename = path.join(
 		__dirname,
-		"../output",
+		"../public/data",
 		namespace,
 		`${identifier}.json`
 	);
@@ -44,7 +44,7 @@ async function main() {
   }[];
 
 	try {
-		rmSync(path.join(__dirname, "../output"), {
+		rmSync(path.join(__dirname, "../public/data"), {
 			force: true,
 			recursive: true,
 		});
@@ -52,9 +52,9 @@ async function main() {
 		// Ignore if directory doesn't exist
 	}
 
-	mkdirSync(path.join(__dirname, "../output"));
+	mkdirSync(path.join(__dirname, `../public/data`));
 	for (const ns of ["Vehicle", "VehicleClass", "Company"] as const) {
-		mkdirSync(path.join(__dirname, `../output/${ns}`));
+		mkdirSync(path.join(__dirname, `../public/data/${ns}`));
 	}
 
 	for (const { vehicles, vehicleClass } of data) {
